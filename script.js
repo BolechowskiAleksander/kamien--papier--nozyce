@@ -25,22 +25,18 @@ function displayResult(playerMove, computerMove){
     else resultDiv.innerHTML = "wygrałeś"; 
 }
 
+function onPress (){
+    const randomMove = createComputerMove();
+    displayMoves(this.id, randomMove);
+    displayResult(this.id, randomMove);
+}
+
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 
-rock.addEventListener("click", function(){
-    const randomMove = createComputerMove();
-    displayMoves(this.id, randomMove);
-    displayResult(this.id, randomMove);
+[rock, paper, scissors].forEach((el) => {
+    el.addEventListener('click', onPress);
 })
-paper.addEventListener("click", function(){
-    const randomMove = createComputerMove();
-    displayMoves(this.id, randomMove);
-    displayResult(this.id, randomMove);
-})
-scissors.addEventListener("click", function(){
-    const randomMove = createComputerMove();
-    displayMoves(this.id, randomMove);
-    displayResult(this.id, randomMove);
-})
+
+
